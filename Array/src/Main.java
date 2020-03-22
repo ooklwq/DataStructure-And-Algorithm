@@ -13,5 +13,10 @@ public class Main {
         System.out.println(arr.toString());
         arr.addLast(10);
         System.out.println(arr.toString());
+        arr.addFirst(10);
+        System.out.println(arr.toString());
+        arr.removeFirst();
+        System.out.println(arr.toString());
+        System.out.println(arr.find(11));;
     }
 }
