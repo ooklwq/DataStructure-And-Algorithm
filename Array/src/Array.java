@@ -60,8 +60,8 @@ public class Array {
     public int remove(int index){
         if(index<0 || index >=size) throw new IllegalArgumentException("index>=0&&index<size");
         int ret = data[index];
-        for(int i = index;i<size-1; i++){
-            data[i] = data[i+1];
+        for(int i = index+1;i<size; i++){
+            data[i-1] = data[i];
         }
         size--;
         //缩容
