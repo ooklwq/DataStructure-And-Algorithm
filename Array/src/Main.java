@@ -18,5 +18,7 @@ public class Main {
         arr.removeFirst();
         System.out.println(arr.toString());
         System.out.println(arr.find(11));;
+        arr.removeFirst();
+
     }
 }

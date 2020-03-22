@@ -14,17 +14,26 @@ public class Array {
 
     //向索引index处添加元素e
     public void add(int index, int e){
-        if (size == data.length){
-            throw new IllegalArgumentException("Add failed.Array is full");
-        }
         if(index<0 || index >size){
             throw new IllegalArgumentException("index needs to be index>0 &&index <=size");
+        }
+        if (size == data.length){
+            resize(size*2);
         }
         for(int i = size -1 ; i>=index; i--){
             data[i+1] = data[i];
         }
         data[index] = e;
         size++;
+    }
+
+    //对数组重新分配空间，并拷贝数据
+    public void resize(int capacity){
+        int[] newData = new int[capacity];
+        for (int i = 0; i<size;i++){
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
     public void addLast(int e){
@@ -55,6 +64,10 @@ public class Array {
             data[i] = data[i+1];
         }
         size--;
+        //缩容
+        if(size == data.length/4 && data.length/2 != 0){
+            resize(data.length/2);
+        }
         return ret;
     }
 
