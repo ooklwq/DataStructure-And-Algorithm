@@ -1,9 +1,11 @@
-public class Array {
-    private int[] data;
+import java.util.Objects;
+
+public class Array<E> {
+    private E[] data;
     private int size;
 
     public Array(int capacity){
-        data = new int[capacity];
+        data = (E[])new Object[capacity];
         size = 0;
     }
 
@@ -13,7 +15,7 @@ public class Array {
     }
 
     //向索引index处添加元素e
-    public void add(int index, int e){
+    public void add(int index, E e){
         if(index<0 || index >size){
             throw new IllegalArgumentException("index needs to be index>0 &&index <=size");
         }
@@ -29,37 +31,47 @@ public class Array {
 
     //对数组重新分配空间，并拷贝数据
     public void resize(int capacity){
-        int[] newData = new int[capacity];
+        E[] newData = (E[]) new Object[capacity];
         for (int i = 0; i<size;i++){
             newData[i] = data[i];
         }
         data = newData;
     }
 
-    public void addLast(int e){
-        add(size,e);
+    public void addLast(E e){
+        add(size, e);
     }
 
-    public void addFirst(int e){
-        add(0,e);
+    public void addFirst(E e){
+        add(0, e);
     }
 
     //查找指定元素，成功返回该元素的索引，否则返回-1
-    public int find(int e){
+    public int find(E e){
         for (int i = 0;i<size;i++){
             if(e == data[i]) return i;
         }
         return -1;
     }
 
-    public void set(int index, int e){
+    public boolean contains(E e){
+        for (int i = 0; i < size; i++){
+            if(e == data[i]) return true;
+        }
+        return false;
+    }
+    public boolean isEmpty(){
+        return size==0;
+    }
+
+    public void set(int index, E e){
         data[index] = e;
     }
 
     //删除指定的元素，删除成功返回被删除的元素
-    public int remove(int index){
+    public E remove(int index){
         if(index<0 || index >=size) throw new IllegalArgumentException("index>=0&&index<size");
-        int ret = data[index];
+        E ret = data[index];
         for(int i = index+1;i<size; i++){
             data[i-1] = data[i];
         }
@@ -71,11 +83,18 @@ public class Array {
         return ret;
     }
 
-    public int removeFirst(){
+    public E removeFirst(){
         return remove(0);
     }
 
-    public int removeLast(){
+    public void removeElement(E e){
+        int index = find(e);
+        if(index != -1){
+            remove(index);
+        }
+    }
+
+    public E removeLast(){
         return remove(size-1);
     }
 

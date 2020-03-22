@@ -6,7 +6,7 @@ public class Main {
 //	    int[] arr = new int[10];
 //	    arr[0] = 1;
 //	    System.out.println(arr[0]);
-        Array arr = new Array(10);
+        Array<Integer> arr = new Array<>(10);
         for(int i=0;i<8;i++){
             arr.addLast(i);
         }
