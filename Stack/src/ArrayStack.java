@@ -15,6 +15,10 @@ public class ArrayStack <E> implements Stack<E>{
         return array.getSize();
     }
 
+    public int getCapacity(){
+        return array.getCapacity();
+    }
+
     @Override
     public boolean isEmpty(){
         return array.isEmpty();
@@ -41,12 +45,12 @@ public class ArrayStack <E> implements Stack<E>{
         res.append("Stack :");
         res.append("[");
         for (int i = 0; i < getSize(); i++) {
-            res.append(array.findElment(i));
+            res.append(array.get(i));
             if (i != getSize()-1){
                 res.append(", ");
             }
         }
-        res.append("]top");
+        res.append("] top");
         return res.toString();
     }
 

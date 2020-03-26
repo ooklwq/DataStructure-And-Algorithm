@@ -60,17 +60,17 @@ public class Array<E> {
         return -1;
     }
 
-    public E findElment(int index){
+    public E get(int index){
         if (index < 0 || index >=size ) throw new IllegalArgumentException("index >= 0 && index < size");
         return data[index];
     }
 
     public E getLast(){
-        return findElment(size -1);
+        return get(size -1);
     }
 
     public E getFirst(){
-        return findElment(0);
+        return get(0);
     }
 
     public boolean contains(E e){
@@ -84,6 +84,7 @@ public class Array<E> {
     }
 
     public void set(int index, E e){
+        if(index<0 || index >=size) throw new IllegalArgumentException("index>=0&&index<size");
         data[index] = e;
     }
 
