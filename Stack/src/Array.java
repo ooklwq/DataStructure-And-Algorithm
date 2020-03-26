@@ -1,5 +1,4 @@
 import java.util.Objects;
-
 public class Array<E> {
     private E[] data;
     private int size;
