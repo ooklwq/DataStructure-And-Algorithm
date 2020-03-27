@@ -37,7 +37,7 @@ public class Array<E> {
     }
 
     //对数组重新分配空间，并拷贝数据
-    public void resize(int capacity){
+    private void resize(int capacity){
         E[] newData = (E[]) new Object[capacity];
         for (int i = 0; i<size;i++){
             newData[i] = data[i];
