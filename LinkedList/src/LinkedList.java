@@ -57,7 +57,7 @@ public class LinkedList<E> {
     }
 
     public E remove(int index){
-        if (index < 0 || index >= size) throw new IllegalArgumentException("Remove failed.Index is illegal》");
+        if (index < 0 || index >= size) throw new IllegalArgumentException("Remove failed.Index is illegal");
         Node prev = dummyHead;
         for (int i = 0; i < index; i++) {
             prev = prev.next;
@@ -78,6 +78,7 @@ public class LinkedList<E> {
     }
 
     public E get(int index){
+        if (index < 0 || index >= size) throw new IllegalArgumentException("Index is illegal");
         Node cur = dummyHead.next;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
