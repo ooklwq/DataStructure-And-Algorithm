@@ -24,5 +24,20 @@ public class Main {
         System.out.println();
         bst.postOrderNR();
         System.out.println();
+
+        bst.levelOrder();
+        System.out.println();
+
+        System.out.println(bst.removeMin());
+        System.out.println();
+
+        bst.levelOrder();
+        System.out.println();
+
+        System.out.println(bst.removeMax());
+        System.out.println();
+
+        bst.levelOrder();
+        System.out.println();
     }
 }
