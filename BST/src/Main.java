@@ -28,13 +28,16 @@ public class Main {
         bst.levelOrder();
         System.out.println();
 
-        System.out.println(bst.removeMin());
-        System.out.println();
+//        System.out.println(bst.removeMin());
+//        System.out.println();
 
-        bst.levelOrder();
-        System.out.println();
+//        bst.levelOrder();
+//        System.out.println();
 
-        System.out.println(bst.removeMax());
+//        System.out.println(bst.removeMax());
+//        System.out.println();
+
+        bst.removeElement(3);
         System.out.println();
 
         bst.levelOrder();

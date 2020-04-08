@@ -236,6 +236,49 @@ public class BST<E extends Comparable<E>> {
         return node;
     }
 
+    //删除二分搜索树中值为e的节点
+    public void removeElement(E e){
+        root = removeElement(root, e);
+    }
+
+    //删除以node为根节点的二分搜索树中值为e的节点
+    //返回删除后的二分搜索树的根节点
+    private TreeNode removeElement(TreeNode node, E e){
+        if (node == null) return null;
+        if (e.compareTo(node.val) == 0){
+            if (node.left == null){
+                TreeNode rigthNode = node.right;
+                node.right = null;
+                size --;
+                return rigthNode;
+            }
+            if (node.right == null){
+                TreeNode leftNode = node.left;
+                node.left = null;
+                size --;
+                return leftNode;
+            }
+            if (node.left != null && node.right != null){
+                //左右子树都不为空时，将待删除节点的前驱或者后继节点替换待删除节点
+                //此处采用后继节点，即右子树中的最小值节点
+                TreeNode successor = minimum(node.right);
+                successor.right = removeMin(node.right);
+                successor.left = node.left;
+                node.left = node.right = null;
+                return successor;
+                //法二，采用一个小技巧：将后继节点的值赋值给待删除节点，不是真的删除
+//                node.val = successor.val;
+//                node.right = removeElement(node.right, successor.val);
+//                return node;
+            }
+
+        } else if (e.compareTo(node.val) < 0){
+            node.left = removeElement(node.left, e);
+        } else{
+            node.right = removeElement(node.right, e);
+        }
+        return node;
+    }
 
 
 }
