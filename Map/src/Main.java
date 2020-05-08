@@ -32,9 +32,9 @@ public class Main {
 
         String filename = "Map/pride-and-prejudice.txt";
 
-//        BSTMap<String, Integer> bstMap = new BSTMap<>();
-//        double time1 = testMap(bstMap, filename);
-//        System.out.println("BST Map: " + time1 + " s");
+        BSTMap<String, Integer> bstMap = new BSTMap<>();
+        double time1 = testMap(bstMap, filename);
+        System.out.println("BST Map: " + time1 + " s");
 
         System.out.println();
 
